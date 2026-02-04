@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Birthday QR</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+
+<h2>Scan to open Birthday Website 🎂</h2>
+<div id="qrcode"></div>
+
+<script>
+  new QRCode(document.getElementById("qrcode"), {
+    text: "https://yourusername.github.io/birthday-website/index.html",
+    width: 200,
+    height: 200
+  });
+</script>
+
+</body>
+</html>

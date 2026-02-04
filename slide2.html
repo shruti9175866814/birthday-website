@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Surprise 🎁</title>
+
+<style>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Body */
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #cdb4ff, #7b2cbf);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Card */
+.card {
+  background: linear-gradient(135deg, #45217c, #7f3bdc);
+  padding: 55px 50px;
+  border-radius: 24px;
+  box-shadow: 0 25px 55px rgba(0,0,0,0.45);
+  animation: fadeIn 1s ease forwards;
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+}
+
+/* Heading */
+h3 {
+  font-size: 2em;
+  margin-bottom: 35px;
+  color: #f5d76e;
+  text-shadow: 0 0 18px rgba(245,215,110,0.6);
+}
+
+/* Buttons container */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+}
+
+/* Buttons */
+.btn {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* YES button */
+.yes {
+  background: linear-gradient(135deg, #f5d76e, #f1c40f);
+  color: #000;
+  box-shadow: 0 10px 25px rgba(241,196,15,0.55);
+}
+
+.yes:hover {
+  transform: scale(1.1);
+  box-shadow: 0 14px 35px rgba(241,196,15,0.75);
+}
+
+/* NO button */
+.no {
+  background: transparent;
+  color: #f3e8ff;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+
+.no:hover {
+  background: rgba(255,255,255,0.15);
+  transform: scale(1.05);
+}
+
+/* Dots */
+.dots {
+  margin-top: 30px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 6px;
+  background-color: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.active {
+  background-color: #f5d76e;
+  box-shadow: 0 0 10px rgba(245,215,110,0.9);
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  animation: float 6s infinite linear;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 10px rgba(127,59,220,0.8));
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" autoplay loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<div class="card">
+  <h3>✨ Do you wanna see what I made?? ✨</h3>
+
+  <div class="buttons">
+    <button class="btn yes" onclick="window.location.href='slide3.html'">
+      Yes! 👏
+    </button>
+    <button class="btn no" onclick="sayNo()">
+      No 😢
+    </button>
+  </div>
+
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+  </div>
+</div>
+
+<script>
+function sayNo() {
+  alert("Aww 😢, but you HAVE to see it 💜");
+}
+
+/* Floating hearts */
+const hearts = ['💜','💖','✨','💛','💙'];
+for (let i = 0; i < 22; i++) {
+  const h = document.createElement('div');
+  h.className = 'heart';
+  h.style.left = Math.random() * 100 + 'vw';
+  h.style.fontSize = 16 + Math.random() * 28 + 'px';
+  h.style.animationDuration = 4 + Math.random() * 4 + 's';
+  h.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+  document.body.appendChild(h);
+}
+</script>
+
+</body>
+</html>
